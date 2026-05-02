@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URCDE — Universal Reality &amp; Civilization Decision Engine | 宇宙规则与文明决策统一引擎</title>
+
+<meta name="description" content="URCDE is a bilingual conceptual framework that unifies physics + civilization decisions as one recursive system. Twelve layers, side-by-side EN+中文, with interactive co-evolution loop, state-vector simulator, multi-agent interpretation, counterfactual generator, and a 5-metric civilization performance radar.">
+<meta name="keywords" content="URCDE, civilization decision engine, physics of civilization, complex systems, intelligence as physics, decision theory, state vector, emergence, collapse theory, 文明决策, 复杂系统, 涌现">
+<meta name="author" content="Gewenbo">
+<link rel="canonical" href="https://urcde.psyverse.fun/">
+<link rel="alternate" hreflang="en" href="https://urcde.psyverse.fun/">
+<link rel="alternate" hreflang="zh-CN" href="https://urcde.psyverse.fun/">
+<link rel="alternate" hreflang="x-default" href="https://urcde.psyverse.fun/">
+<meta property="og:title" content="URCDE · Universal Reality &amp; Civilization Decision Engine">
+<meta property="og:description" content="A unified framework treating physics, intelligence, and civilization as one recursive system. Twelve layers, side-by-side bilingual, interactive throughout.">
+<meta property="og:url" content="https://urcde.psyverse.fun/">
+<meta property="og:site_name" content="Psyverse">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="URCDE · Universal Reality &amp; Civilization Decision Engine">
+<meta name="twitter:description" content="Reality and civilization as one recursive system. Bilingual EN/中文.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#040814">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"URCDE · Universal Reality & Civilization Decision Engine","description":"A unified bilingual framework for physics + intelligence + civilization decisions.","url":"https://urcde.psyverse.fun/","inLanguage":["en","zh-CN"],"author":{"@type":"Person","name":"Gewenbo","url":"https://psyverse.fun/"},"publisher":{"@type":"Organization","name":"Psyverse","url":"https://psyverse.fun/"}}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23040814'/><circle cx='10' cy='10' r='4' fill='none' stroke='%2322d3ee' stroke-width='1.5'/><circle cx='22' cy='22' r='4' fill='none' stroke='%23f97316' stroke-width='1.5'/><line x1='13' y1='13' x2='19' y2='19' stroke='%23fbbf24' stroke-width='1.2'/></svg>">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #040814;
+  --bg-2: #0a1024;
+  --bg-3: #121a35;
+  --line: #1c2440;
+  --line-2: #2a3460;
+  --fg: #e8eaf2;
+  --fg-2: #a8b0c4;
+  --fg-3: #6c7488;
+  --cyan: #22d3ee;
+  --cyan-glow: #22d3ee44;
+  --orange: #f97316;
+  --orange-glow: #f9731644;
+  --gold: #fbbf24;
+  --lime: #84cc16;
+  --violet: #a78bfa;
+  --rose: #fb7185;
+  --emerald: #34d399;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Source Serif 4', 'Noto Serif SC', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.mono { font-family: 'JetBrains Mono', monospace; }
+.serif { font-family: 'Cormorant Garamond', 'Noto Serif SC', serif; }
+.sans { font-family: 'Space Grotesk', 'Noto Sans SC', sans-serif; }
+
+#starfield { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; }
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(34,211,238,.07), transparent 50%),
+    radial-gradient(circle at 82% 92%, rgba(249,115,22,.06), transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(4,8,20,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  display: flex; align-items: center;
+  padding: 0 24px; gap: 14px;
+}
+nav .logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 12px;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--fg); text-decoration: none;
+  letter-spacing: 0.08em;
+}
+nav .logo .glyph {
+  width: 24px; height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+nav .logo .glyph svg { width: 24px; height: 24px; display: block; }
+nav .links {
+  display: flex; gap: 13px;
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+nav .links a { color: var(--fg-2); text-decoration: none; transition: color .15s; }
+nav .links a:hover { color: var(--cyan); }
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero */
+.hero {
+  min-height: 92vh;
+  display: flex; align-items: center;
+  padding: 130px 0 80px;
+}
+.hero .container { width: 100%; }
+.tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--cyan);
+  border: 1px solid var(--line-2);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 36px;
+  letter-spacing: 0.1em;
+}
+.tag .dot {
+  width: 6px; height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--cyan);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% {opacity:1; transform:scale(1);} 50% {opacity:.5; transform:scale(.7);} }
+
+h1 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.018em;
+  margin-bottom: 24px;
+}
+h1 .urcde {
+  display: block;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--gold) 50%, var(--orange) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.9em;
+}
+h1 .full {
+  display: block;
+  font-size: 0.32em;
+  color: var(--fg-2);
+  letter-spacing: 0.02em;
+  margin-top: 16px;
+  font-style: italic;
+}
+h1 .zh-full {
+  display: block;
+  font-size: 0.28em;
+  color: var(--fg-2);
+  margin-top: 8px;
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+}
+
+.lede-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin: 48px 0;
+  max-width: 940px;
+}
+@media (max-width: 720px) { .lede-pair { grid-template-columns: 1fr; gap: 18px; } }
+.lede-pair .l-en, .lede-pair .l-zh {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(16px, 1.45vw, 19px);
+  line-height: 1.6;
+  color: var(--fg-2);
+  font-style: italic;
+}
+.lede-pair .l-zh { font-family: 'Noto Serif SC', serif; font-style: normal; }
+.lede-pair .l-en::before, .lede-pair .l-zh::before {
+  content: ''; display: block;
+  width: 24px; height: 1px;
+  background: var(--cyan);
+  margin-bottom: 14px;
+}
+
+.note {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 28px 0 0;
+  max-width: 940px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 720px) { .note { grid-template-columns: 1fr; gap: 12px; } }
+.note .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+.note p { font-family: 'Source Serif 4', 'Noto Serif SC', serif; font-size: 13.5px; line-height: 1.6; color: var(--fg-2); margin: 0; }
+.note p.zh { font-family: 'Noto Serif SC', serif; }
+
+/* Section */
+section.layer {
+  padding: 100px 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+  z-index: 1;
+}
+.layer-head {
+  display: flex; align-items: baseline; gap: 18px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.layer-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 50px;
+  font-weight: 400;
+  color: var(--cyan);
+  line-height: 1;
+  text-shadow: 0 0 20px var(--cyan-glow);
+}
+.layer-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.layer h2 {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+  line-height: 1.05;
+  font-style: italic;
+}
+.layer h2 .zh {
+  display: block;
+  font-family: 'Noto Serif SC', serif;
+  font-style: normal;
+  font-size: 0.6em;
+  color: var(--fg-2);
+  margin-top: 8px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Bilingual */
+.bi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 22px 0;
+  position: relative;
+  max-width: 980px;
+}
+.bi::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--line);
+  transform: translateX(-50%);
+}
+.bi .en, .bi .zh {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--fg-2);
+}
+.bi .en {
+  font-family: 'Source Serif 4', serif;
+  padding-right: 12px;
+}
+.bi .zh {
+  font-family: 'Noto Serif SC', serif;
+  padding-left: 12px;
+}
+.bi .en strong, .bi .zh strong { color: var(--fg); font-weight: 600; }
+.bi .en em, .bi .zh em { color: var(--fg); font-style: italic; }
+@media (max-width: 720px) {
+  .bi { grid-template-columns: 1fr; gap: 12px; }
+  .bi::before { display: none; }
+  .bi .en { padding-right: 0; padding-bottom: 12px; border-bottom: 1px dashed var(--line); }
+  .bi .zh { padding-left: 0; }
+}
+
+/* Axiom layers */
+.axiom-layers {
+  display: grid;
+  gap: 14px;
+  margin: 28px 0;
+}
+.axiom-layer {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 10px;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 720px) { .axiom-layer { grid-template-columns: 1fr; gap: 12px; } }
+.axiom-layer.orange { border-left-color: var(--orange); }
+.axiom-layer.gold { border-left-color: var(--gold); }
+.axiom-layer.violet { border-left-color: var(--violet); }
+.axiom-layer .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 36px;
+  color: var(--cyan);
+  line-height: 1;
+}
+.axiom-layer.orange .num { color: var(--orange); }
+.axiom-layer.gold .num { color: var(--gold); }
+.axiom-layer.violet .num { color: var(--violet); }
+.axiom-layer .nm-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+.axiom-layer .nm-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  color: var(--fg-2);
+  margin-top: 4px;
+}
+.axiom-layer ul {
+  list-style: none;
+  font-family: 'Source Serif 4', serif;
+  font-size: 13px;
+  color: var(--fg-2);
+  line-height: 1.55;
+}
+.axiom-layer ul li {
+  padding: 3px 0;
+  display: flex;
+  gap: 8px;
+}
+.axiom-layer ul li::before {
+  content: '◇';
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+.axiom-layer.orange ul li::before { color: var(--orange); }
+.axiom-layer.gold ul li::before { color: var(--gold); }
+.axiom-layer.violet ul li::before { color: var(--violet); }
+.axiom-layer ul.zh { font-family: 'Noto Sans SC', sans-serif; }
+.axiom-layer ul.zh li::before { content: '◆'; }
+
+/* State variable cards */
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 28px 0;
+}
+.state-var {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px 18px;
+  border-top: 2px solid var(--cyan);
+}
+.state-var.orange { border-top-color: var(--orange); }
+.state-var.gold { border-top-color: var(--gold); }
+.state-var.violet { border-top-color: var(--violet); }
+.state-var.lime { border-top-color: var(--lime); }
+.state-var.rose { border-top-color: var(--rose); }
+.state-var .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.state-var.orange .lab { color: var(--orange); }
+.state-var.gold .lab { color: var(--gold); }
+.state-var.violet .lab { color: var(--violet); }
+.state-var.lime .lab { color: var(--lime); }
+.state-var.rose .lab { color: var(--rose); }
+.state-var .nm-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--fg);
+}
+.state-var .nm-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 13px;
+  color: var(--fg-2);
+  margin-top: 2px;
+}
+
+/* Co-evolution loop SVG */
+.loop-wrap {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 720px) { .loop-wrap { grid-template-columns: 1fr; } }
+#loop-svg { width: 100%; max-width: 420px; display: block; margin: 0 auto; }
+
+.eq {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: var(--cyan);
+  background: var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  overflow-x: auto;
+  text-align: center;
+}
+.eq.orange { color: var(--orange); }
+
+/* Multi-agent tabs */
+.agent-wrap {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+.agent-tabs {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.agent-tab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 8px 14px;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--fg-2);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all .15s;
+  letter-spacing: 0.04em;
+}
+.agent-tab:hover { color: var(--fg); }
+.agent-tab.active { color: var(--cyan); border-color: var(--cyan); background: rgba(34,211,238,.08); }
+.agent-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+.agent-name-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  color: var(--fg-2);
+  margin-bottom: 18px;
+}
+.agent-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 720px) { .agent-content { grid-template-columns: 1fr; gap: 14px; } }
+.agent-content .col-en, .agent-content .col-zh {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--fg-2);
+}
+.agent-content .col-zh { font-family: 'Noto Serif SC', serif; }
+.agent-content strong { color: var(--fg); }
+
+/* Scenario cards */
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 28px 0;
+}
+.scenario {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  border-top: 3px solid var(--gold);
+}
+.scenario.orange { border-top-color: var(--orange); }
+.scenario.lime { border-top-color: var(--lime); }
+.scenario.rose { border-top-color: var(--rose); }
+.scenario .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.scenario.orange .lab { color: var(--orange); }
+.scenario.lime .lab { color: var(--lime); }
+.scenario.rose .lab { color: var(--rose); }
+.scenario .nm-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--fg);
+}
+.scenario .nm-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 14px;
+  color: var(--fg-2);
+  margin-bottom: 14px;
+}
+.scenario .body-en, .scenario .body-zh {
+  font-size: 13px; line-height: 1.6; color: var(--fg-2);
+}
+.scenario .body-en { font-family: 'Source Serif 4', serif; padding-bottom: 10px; border-bottom: 1px dashed var(--line); margin-bottom: 10px; }
+.scenario .body-zh { font-family: 'Noto Sans SC', sans-serif; }
+
+/* State vector simulator */
+.sim-wrap {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 720px) { .sim-wrap { grid-template-columns: 1fr; } }
+.sim-controls { }
+.sim-control {
+  margin-bottom: 16px;
+}
+.sim-control label {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.sim-control label .v { color: var(--fg); font-weight: 600; }
+.sim-control input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line-2);
+  outline: none;
+  cursor: pointer;
+}
+.sim-control input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan-glow);
+  cursor: pointer;
+}
+.sim-control input[type=range]::-moz-range-thumb {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--cyan); box-shadow: 0 0 8px var(--cyan-glow);
+  cursor: pointer; border: 0;
+}
+.sim-output {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+}
+.sim-output .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.sim-output .verdict-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--fg);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.sim-output .verdict-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16px;
+  color: var(--fg-2);
+  line-height: 1.45;
+  margin-bottom: 18px;
+}
+.sim-output .desc-en, .sim-output .desc-zh {
+  font-size: 13.5px; line-height: 1.6; color: var(--fg-2);
+}
+.sim-output .desc-en { font-family: 'Source Serif 4', serif; padding-bottom: 12px; border-bottom: 1px dashed var(--line); margin-bottom: 12px; }
+.sim-output .desc-zh { font-family: 'Noto Sans SC', sans-serif; }
+
+/* Counterfactuals */
+.cf-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin: 24px 0 16px;
+}
+.cf-tab {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: all .15s;
+}
+.cf-tab:hover { border-color: var(--orange); transform: translateY(-1px); }
+.cf-tab.active { border-color: var(--orange); background: rgba(249,115,22,.08); box-shadow: 0 0 12px var(--orange-glow); }
+.cf-tab .nm-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--fg);
+}
+.cf-tab .nm-zh {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 11px;
+  color: var(--fg-2);
+  margin-top: 3px;
+}
+.cf-tab.active .nm-en, .cf-tab.active .nm-zh { color: var(--orange); }
+.cf-content {
+  background: var(--bg-2);
+  border: 1px solid var(--orange);
+  border-radius: 12px;
+  padding: 28px;
+  margin-top: 16px;
+  box-shadow: 0 0 20px var(--orange-glow);
+}
+.cf-content .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 720px) { .cf-content .pair { grid-template-columns: 1fr; gap: 14px; } }
+.cf-content .pair .col-en, .cf-content .pair .col-zh {
+  font-family: 'Source Serif 4', serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--fg-2);
+}
+.cf-content .pair .col-zh { font-family: 'Noto Serif SC', serif; }
+.cf-content .pair strong { color: var(--fg); }
+
+/* Radar */
+.radar-wrap {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 720px) { .radar-wrap { grid-template-columns: 1fr; } }
+#metrics-canvas {
+  width: 100%;
+  max-width: 460px;
+  display: block;
+  margin: 0 auto;
+}
+.metrics-list { }
+.metrics-list .m {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.metrics-list .m:last-child { border-bottom: none; }
+.metrics-list .m .swatch {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--cyan);
+  flex-shrink: 0;
+}
+.metrics-list .m .nm {
+  flex: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--fg);
+}
+.metrics-list .m .nm .zh {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-left: 8px;
+}
+.metrics-list .m .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cyan);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* Insight */
+.insight {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 8px;
+  padding: 24px 26px;
+  margin: 32px 0;
+}
+.insight .lab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.insight .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 720px) { .insight .pair { grid-template-columns: 1fr; gap: 14px; } }
+.insight .pair p {
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+  font-size: 18px;
+  color: var(--fg);
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0;
+}
+.insight .pair p.zh { font-family: 'Noto Serif SC', serif; font-style: normal; }
+
+/* Final manifesto */
+.manifesto {
+  text-align: center;
+  padding: 80px 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 80px 0 0;
+}
+.manifesto .glyph {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(60px, 14vw, 140px);
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--orange) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+.manifesto .pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) { .manifesto .pair { grid-template-columns: 1fr; gap: 16px; } }
+.manifesto .pair p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--fg);
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+}
+.manifesto .pair p.zh { font-family: 'Noto Serif SC', serif; font-style: normal; }
+
+footer {
+  padding: 50px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--fg-3);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+}
+.foot-bottom a { color: var(--cyan); text-decoration: none; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s, transform .8s; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  nav .links { display: none; }
+  .hero { min-height: 70vh; padding: 100px 0 50px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<nav>
+  <a class="logo" href="#"><span class="glyph"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3" fill="none" stroke="#22d3ee" stroke-width="1.5"/><circle cx="16" cy="16" r="3" fill="none" stroke="#f97316" stroke-width="1.5"/><line x1="10" y1="10" x2="14" y2="14" stroke="#fbbf24" stroke-width="1.2"/></svg></span> URCDE · 文明决策引擎</a>
+  <div class="links">
+    <a href="#layer1">01</a><a href="#layer2">02</a><a href="#layer3">03</a>
+    <a href="#layer4">04</a><a href="#layer5">05</a><a href="#layer6">06</a>
+    <a href="#layer7">07</a><a href="#layer8">08</a><a href="#layer9">09</a>
+    <a href="#layer10">10</a><a href="#layer11">11</a><a href="#layer12">12</a>
+    <a href="#final">∞</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="tag"><span class="dot"></span> A UNIFIED CONCEPTUAL FRAMEWORK · 一个统一的概念框架</div>
+    <h1>
+      <span class="urcde">URCDE</span>
+      <span class="full">Universal Reality &amp; Civilization Decision Engine</span>
+      <span class="zh-full">宇宙规则与文明决策统一引擎</span>
+    </h1>
+    <div class="lede-pair">
+      <div class="l-en">A bilingual framework treating physics, intelligence, and civilization as one continuous recursive system. Twelve layers connect the laws of energy and entropy to the dynamics of decision and collapse — with interactive co-evolution loop, state-vector simulator, multi-agent interpretation, counterfactual generator, and a 5-metric civilization performance radar. <strong>Reality and civilization are the same process viewed at different scales.</strong></div>
+      <div class="l-zh">一个双语框架，将物理、智能与文明视为同一连续递归系统。十二层将能量与熵的定律连接至决策与崩溃的动态——含交互式协同演化回路、状态向量模拟器、多智能体解读、反事实生成器、与五维文明绩效雷达。<strong>实在与文明是同一过程在不同尺度上的呈现。</strong></div>
+    </div>
+    <div class="note">
+      <div>
+        <div class="lab">A note on what this is · 关于本物之注</div>
+        <p>URCDE is not predictive AI. It is a structured conceptual atlas — a thinking tool. The "self-generating" property is implemented honestly via interactive elements (state-vector sliders, agent tabs, counterfactual generator) that respond to your input. Each layer presents a unifying frame, not a forecast.</p>
+      </div>
+      <div>
+        <p class="zh">URCDE 不是预测性 AI。它是一份结构化的概念图谱——一件思考工具。「自生成」属性通过真正响应输入的交互元素（状态向量滑块、智能体标签、反事实生成器）诚实实现。每一层呈现一个统一框架，而非预测。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 01 -->
+<section class="layer reveal" id="layer1">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">I</div>
+      <div>
+        <div class="layer-tag">LAYER 01 · UNIFIED REALITY AXIOMS</div>
+        <h2>Four layers of axioms <span class="zh">四层公理</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">URCDE rests on four nested axiom layers. Each presupposes the layer below. Together they make physics, information, emergence, and intelligence speak the same language.</div>
+      <div class="zh">URCDE 立足于四层嵌套公理。每一层以其下一层为前提。它们共同让物理、信息、涌现与智能说同一种语言。</div>
+    </div>
+
+    <div class="axiom-layers">
+      <div class="axiom-layer">
+        <div class="num">L1</div>
+        <div>
+          <div class="nm-en"><em>Physical</em></div>
+          <div class="nm-zh">物理公理</div>
+          <ul>
+            <li>Energy conservation</li>
+            <li>Entropy increase (2nd law)</li>
+            <li>Causality constraints</li>
+            <li>Quantum probabilistic structure</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="zh">
+            <li>能量守恒</li>
+            <li>熵增（热力学第二定律）</li>
+            <li>因果约束</li>
+            <li>量子概率结构</li>
+          </ul>
+        </div>
+      </div>
+      <div class="axiom-layer orange">
+        <div class="num">L2</div>
+        <div>
+          <div class="nm-en"><em>Informational</em></div>
+          <div class="nm-zh">信息公理</div>
+          <ul>
+            <li>Information is physical (Landauer)</li>
+            <li>Compression drives structure formation</li>
+            <li>Observation collapses uncertainty into state</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="zh">
+            <li>信息即物理（Landauer 原理）</li>
+            <li>压缩驱动结构形成</li>
+            <li>观察使不确定性坍缩为状态</li>
+          </ul>
+        </div>
+      </div>
+      <div class="axiom-layer gold">
+        <div class="num">L3</div>
+        <div>
+          <div class="nm-en"><em>Emergence</em></div>
+          <div class="nm-zh">涌现公理</div>
+          <ul>
+            <li>Complexity arises from feedback loops</li>
+            <li>Stability emerges from constraint systems</li>
+            <li>Instability produces evolution</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="zh">
+            <li>复杂性源自反馈回路</li>
+            <li>稳定性源自约束系统</li>
+            <li>不稳定性催生演化</li>
+          </ul>
+        </div>
+      </div>
+      <div class="axiom-layer violet">
+        <div class="num">L4</div>
+        <div>
+          <div class="nm-en"><em>Intelligence</em></div>
+          <div class="nm-zh">智能公理</div>
+          <ul>
+            <li>Intelligence = compression + prediction + action</li>
+            <li>Intelligence modifies its environment</li>
+            <li>Intelligence modifies its own rules via models</li>
+          </ul>
+        </div>
+        <div>
+          <ul class="zh">
+            <li>智能 = 压缩 + 预测 + 行动</li>
+            <li>智能改造其环境</li>
+            <li>智能通过模型改造自身规则</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 02 -->
+<section class="layer reveal" id="layer2">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">II</div>
+      <div>
+        <div class="layer-tag">LAYER 02 · CIVILIZATION AS PHYSICAL DYNAMIC SYSTEM</div>
+        <h2>Six state variables <span class="zh">六个状态变量</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">A civilization is not a metaphor. It is a physical dynamic system whose state can be (approximately) characterized by six measurable variables. Each variable couples to physics through energy, information, and constraint.</div>
+      <div class="zh">文明不是比喻。它是一个物理动态系统，其状态可以（近似地）由六个可度量变量刻画。每个变量通过能量、信息与约束与物理耦合。</div>
+    </div>
+    <div class="state-grid">
+      <div class="state-var"><div class="lab">SV 01</div><div class="nm-en"><em>Energy Availability</em></div><div class="nm-zh">能量可得性</div></div>
+      <div class="state-var orange"><div class="lab">SV 02</div><div class="nm-en"><em>Computational Capacity</em></div><div class="nm-zh">算力容量</div></div>
+      <div class="state-var gold"><div class="lab">SV 03</div><div class="nm-en"><em>Population Distribution</em></div><div class="nm-zh">人口分布</div></div>
+      <div class="state-var violet"><div class="lab">SV 04</div><div class="nm-en"><em>Coordination Efficiency</em></div><div class="nm-zh">协调效率</div></div>
+      <div class="state-var lime"><div class="lab">SV 05</div><div class="nm-en"><em>Technological Complexity</em></div><div class="nm-zh">技术复杂度</div></div>
+      <div class="state-var rose"><div class="lab">SV 06</div><div class="nm-en"><em>Risk Exposure</em></div><div class="nm-zh">风险敞口</div></div>
+    </div>
+    <div class="bi">
+      <div class="en"><strong>Evolution rule:</strong> civilizations evolve under physical constraints + information processing + decision feedback loops. Below is the unified equation.</div>
+      <div class="zh"><strong>演化规则：</strong>文明在物理约束 + 信息处理 + 决策反馈回路下演化。下方是统一方程。</div>
+    </div>
+    <div class="eq">Civ(t+1) = Civ(t) + Decisions(t) − EntropyCost(t) + EnergyInput(t)</div>
+  </div>
+</section>
+
+<!-- LAYER 03 -->
+<section class="layer reveal" id="layer3">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">III</div>
+      <div>
+        <div class="layer-tag">LAYER 03 · INTELLIGENCE-DRIVEN DECISION LAYER</div>
+        <h2>The decision function <span class="zh">决策函数</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">Every civilization is an intelligence system that observes reality, builds internal models, makes decisions under constraints, and updates models based on feedback. Below is the unified decision function. Notice that "objectives" is the only term not derivable from physics — it is what intelligence brings.</div>
+      <div class="zh">每一个文明都是观察实在、构建内部模型、在约束下决策、并根据反馈更新模型的智能系统。下方是统一决策函数。注意「目标」是唯一无法从物理推导的项——它是智能所贡献的。</div>
+    </div>
+    <div class="eq orange">Decision = f(model_of_reality, constraints, objectives, uncertainty)</div>
+    <div class="bi">
+      <div class="en"><strong>Why this matters:</strong> the same physical situation produces different decisions for different intelligences because <em>objectives</em> differ. Intelligence is the term that makes physics non-deterministic <em>at the civilizational scale</em>.</div>
+      <div class="zh"><strong>为何重要：</strong>相同的物理情境对不同的智能体产生不同的决策，因为<em>目标</em>不同。智能正是让物理在<em>文明尺度上</em>非决定论的那一项。</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 04 CO-EVOLUTION LOOP -->
+<section class="layer reveal" id="layer4">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">IV</div>
+      <div>
+        <div class="layer-tag">LAYER 04 · CO-EVOLUTION LOOP</div>
+        <h2>Universe ↔ Intelligence ↔ Decision ↔ Universe <span class="zh">宇宙 ↔ 智能 ↔ 决策 ↔ 宇宙</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">This is the core unifying mechanism of URCDE. Physics defines constraints. Intelligence interprets them. Decisions modify the environment. The environment updates the constraints. The loop repeats — and at no point are physics and civilization separable.</div>
+      <div class="zh">这是 URCDE 的核心统一机制。物理定义约束。智能解读它们。决策改变环境。环境更新约束。循环往复——任何时刻物理与文明都不可分割。</div>
+    </div>
+
+    <div class="loop-wrap">
+      <svg id="loop-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="loop-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="#fbbf24"/>
+          </marker>
+        </defs>
+        <!-- Four nodes in a diamond -->
+        <circle cx="210" cy="60" r="42" fill="#040814" stroke="#22d3ee" stroke-width="1.5"/>
+        <text x="210" y="58" font-family="JetBrains Mono" font-size="11" fill="#22d3ee" text-anchor="middle">PHYSICS</text>
+        <text x="210" y="74" font-family="Noto Sans SC" font-size="10" fill="#a8b0c4" text-anchor="middle">物理</text>
+
+        <circle cx="360" cy="210" r="42" fill="#040814" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="360" y="208" font-family="JetBrains Mono" font-size="11" fill="#a78bfa" text-anchor="middle">INTEL.</text>
+        <text x="360" y="224" font-family="Noto Sans SC" font-size="10" fill="#a8b0c4" text-anchor="middle">智能</text>
+
+        <circle cx="210" cy="360" r="42" fill="#040814" stroke="#f97316" stroke-width="1.5"/>
+        <text x="210" y="358" font-family="JetBrains Mono" font-size="11" fill="#f97316" text-anchor="middle">DECISION</text>
+        <text x="210" y="374" font-family="Noto Sans SC" font-size="10" fill="#a8b0c4" text-anchor="middle">决策</text>
+
+        <circle cx="60" cy="210" r="42" fill="#040814" stroke="#84cc16" stroke-width="1.5"/>
+        <text x="60" y="208" font-family="JetBrains Mono" font-size="11" fill="#84cc16" text-anchor="middle">ENVIRON.</text>
+        <text x="60" y="224" font-family="Noto Sans SC" font-size="10" fill="#a8b0c4" text-anchor="middle">环境</text>
+
+        <!-- Arrows clockwise -->
+        <path id="p1" d="M252 76 Q 320 105, 333 175" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#loop-arr)" stroke-dasharray="4 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <path id="p2" d="M333 245 Q 320 315, 252 344" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#loop-arr)" stroke-dasharray="4 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <path id="p3" d="M168 344 Q 100 315, 87 245" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#loop-arr)" stroke-dasharray="4 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <path id="p4" d="M87 175 Q 100 105, 168 76" fill="none" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#loop-arr)" stroke-dasharray="4 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-16" dur="2s" repeatCount="indefinite"/>
+        </path>
+
+        <!-- Center label -->
+        <text x="210" y="206" font-family="Cormorant Garamond" font-style="italic" font-size="22" fill="#fbbf24" text-anchor="middle">recursive</text>
+        <text x="210" y="225" font-family="Noto Serif SC" font-size="13" fill="#a8b0c4" text-anchor="middle">递归</text>
+      </svg>
+      <div>
+        <div class="bi" style="margin: 0;">
+          <div class="en">Each arrow is a transformation. Physics → Intelligence: data becomes model. Intelligence → Decision: model becomes choice. Decision → Environment: choice becomes change. Environment → Physics: change becomes new constraint. There is no entry point. There is no exit.</div>
+          <div class="zh">每一支箭是一个转化。物理 → 智能：数据变为模型。智能 → 决策：模型变为选择。决策 → 环境：选择变为改变。环境 → 物理：改变变为新约束。没有入口。没有出口。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 05 -->
+<section class="layer reveal" id="layer5">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">V</div>
+      <div>
+        <div class="layer-tag">LAYER 05 · MULTI-LAYER SIMULATION SPACE</div>
+        <h2>Four coupled layers <span class="zh">四个耦合层</span></h2>
+      </div>
+    </div>
+    <div class="state-grid">
+      <div class="state-var">
+        <div class="lab">Layer A · Physical · 物理层</div>
+        <div class="nm-en" style="margin-top:8px;font-size:14px;">Energy flows · Entropy gradients · Material constraints</div>
+        <div class="nm-zh">能量流 · 熵梯度 · 材料约束</div>
+      </div>
+      <div class="state-var orange">
+        <div class="lab">Layer B · Technological · 技术层</div>
+        <div class="nm-en" style="margin-top:8px;font-size:14px;">AI development · Energy systems · Computation scaling</div>
+        <div class="nm-zh">AI 发展 · 能源系统 · 计算扩展</div>
+      </div>
+      <div class="state-var violet">
+        <div class="lab">Layer C · Social · 社会层</div>
+        <div class="nm-en" style="margin-top:8px;font-size:14px;">Coordination · Conflict &amp; cooperation · Cultural evolution</div>
+        <div class="nm-zh">协调系统 · 冲突与合作 · 文化演化</div>
+      </div>
+      <div class="state-var gold">
+        <div class="lab">Layer D · Decision · 决策层</div>
+        <div class="nm-en" style="margin-top:8px;font-size:14px;">Policy making · Strategic planning · Risk management</div>
+        <div class="nm-zh">政策制定 · 战略规划 · 风险管理</div>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">All four interact bidirectionally. Energy scarcity (A) constrains compute scaling (B), which constrains AI capability, which constrains coordination tools (C), which constrains policy quality (D), which feeds back into how humans extract energy (A). The loop is universal — only the speed differs.</div>
+      <div class="zh">四层皆双向互动。能源稀缺（A）约束算力扩展（B），约束 AI 能力，约束协调工具（C），约束政策质量（D），又反馈到人类如何提取能量（A）。该回路普遍存在——只是速度不同。</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 06 MULTI-AGENT -->
+<section class="layer reveal" id="layer6">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">VI</div>
+      <div>
+        <div class="layer-tag">LAYER 06 · MULTI-AGENT INTERPRETATION</div>
+        <h2>Same scenario, five reasoning agents <span class="zh">同一情境，五位推理智能体</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">Scenario: <em>"Global compute demand doubles every 18 months. Energy supply grows 5% annually. What happens?"</em></div>
+      <div class="zh">情境：<em>「全球算力需求每 18 个月翻倍。能源供给年增 5%。会发生什么？」</em></div>
+    </div>
+    <div class="agent-wrap">
+      <div class="agent-tabs" id="agent-tabs">
+        <button class="agent-tab active" data-id="physics">Physics · 物理</button>
+        <button class="agent-tab" data-id="ai">AI · 人工智能</button>
+        <button class="agent-tab" data-id="econ">Economist · 经济</button>
+        <button class="agent-tab" data-id="socio">Sociopolitical · 社会政治</button>
+        <button class="agent-tab" data-id="risk">Risk · 风险</button>
+      </div>
+      <div id="agent-content"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 07 -->
+<section class="layer reveal" id="layer7">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">VII</div>
+      <div>
+        <div class="layer-tag">LAYER 07 · UNIFIED SIMULATION SCENARIOS</div>
+        <h2>Four canonical futures <span class="zh">四种典型未来</span></h2>
+      </div>
+    </div>
+    <div class="scenarios">
+      <div class="scenario">
+        <div class="lab">Scenario 01</div>
+        <div class="nm-en"><em>AI Acceleration · Energy Scarcity</em></div>
+        <div class="nm-zh">AI 加速 · 能源稀缺</div>
+        <div class="body-en">Software gains compound 5×/yr; physical infrastructure cannot keep up. Outcome: bifurcation — a digital elite with abundant compute, a physical underclass without electricity.</div>
+        <div class="body-zh">软件能力年复合增长 5 倍；物理基础设施跟不上。结果：分叉——具有充足算力的数字精英，与无电可用的物理下层阶级。</div>
+      </div>
+      <div class="scenario orange">
+        <div class="lab">Scenario 02</div>
+        <div class="nm-en"><em>Civilization Collapse · Entropy Pressure</em></div>
+        <div class="nm-zh">文明崩溃 · 熵压</div>
+        <div class="body-en">Coordination decays faster than complexity can be maintained. Phase transition: complex global civilization → fragmented local equilibria. Bronze Age collapse, scaled up.</div>
+        <div class="body-zh">协调衰退快于复杂性维系。相变：复杂的全球文明 → 碎片化的局部均衡。青铜时代崩溃的放大版。</div>
+      </div>
+      <div class="scenario lime">
+        <div class="lab">Scenario 03</div>
+        <div class="nm-en"><em>Singularity · Coordination Bottleneck</em></div>
+        <div class="nm-zh">奇点 · 协调瓶颈</div>
+        <div class="body-en">AI capability exceeds human coordination capacity. Outcome depends on alignment: well-aligned AI fills the coordination gap; misaligned AI fills the value gap.</div>
+        <div class="body-zh">AI 能力超过人类协调能力。结果取决于对齐：对齐良好的 AI 填补协调缺口；未对齐的 AI 填补价值缺口。</div>
+      </div>
+      <div class="scenario rose">
+        <div class="lab">Scenario 04</div>
+        <div class="nm-en"><em>Resource Abundance · Complexity Explosion</em></div>
+        <div class="nm-zh">资源丰裕 · 复杂性爆发</div>
+        <div class="body-en">Fusion + AI yields effectively-free energy and intelligence. Number of viable lifestyles, professions, governance forms explodes. Risk: meaning-collapse rather than resource-collapse.</div>
+        <div class="body-zh">聚变 + AI 产出近乎免费的能量与智能。可行的生活方式、职业、治理形式爆增。风险：意义崩塌而非资源崩塌。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 08 STATE VECTOR SIMULATOR -->
+<section class="layer reveal" id="layer8">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">VIII</div>
+      <div>
+        <div class="layer-tag">LAYER 08 · GLOBAL STATE VECTOR · INTERACTIVE</div>
+        <h2>Adjust the seven state variables <span class="zh">调节七个状态变量</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">Drag the sliders. The state vector S(t) is computed live, and the system tells you which scenario your civilization most resembles. The mapping is heuristic — built to make the trade-offs concrete, not to predict.</div>
+      <div class="zh">拖动滑块。状态向量 S(t) 实时计算，系统告诉你你的文明最像哪种情境。映射是启发式的——目的是让权衡具体可见，而非预测。</div>
+    </div>
+
+    <div class="sim-wrap">
+      <div class="sim-controls" id="sim-controls">
+        <div class="sim-control"><label>Energy Distribution · 能量分布 <span class="v" id="v-energy">50</span></label><input type="range" id="s-energy" min="0" max="100" value="50"></div>
+        <div class="sim-control"><label>Intelligence Density · 智能密度 <span class="v" id="v-intel">50</span></label><input type="range" id="s-intel" min="0" max="100" value="50"></div>
+        <div class="sim-control"><label>Coordination Efficiency · 协调效率 <span class="v" id="v-coord">50</span></label><input type="range" id="s-coord" min="0" max="100" value="50"></div>
+        <div class="sim-control"><label>Technological Level · 技术水平 <span class="v" id="v-tech">50</span></label><input type="range" id="s-tech" min="0" max="100" value="50"></div>
+        <div class="sim-control"><label>Entropy Pressure · 熵压 <span class="v" id="v-entropy">50</span></label><input type="range" id="s-entropy" min="0" max="100" value="50"></div>
+        <div class="sim-control"><label>Decision Velocity · 决策速度 <span class="v" id="v-decvel">50</span></label><input type="range" id="s-decvel" min="0" max="100" value="50"></div>
+        <div class="sim-control"><label>Risk Exposure · 风险敞口 <span class="v" id="v-risk">50</span></label><input type="range" id="s-risk" min="0" max="100" value="50"></div>
+      </div>
+      <div class="sim-output">
+        <div class="lab">Computed verdict · 计算结果</div>
+        <div class="verdict-en" id="verdict-en">Stable Equilibrium</div>
+        <div class="verdict-zh" id="verdict-zh">稳定均衡</div>
+        <div class="desc-en" id="desc-en">A balanced configuration. No imminent phase transition.</div>
+        <div class="desc-zh" id="desc-zh">平衡配置。无即将到来的相变。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 09 COUNTERFACTUALS -->
+<section class="layer reveal" id="layer9">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">IX</div>
+      <div>
+        <div class="layer-tag">LAYER 09 · COUNTERFACTUAL UNIVERSES</div>
+        <h2>Pick a different rule set, see a different civilization <span class="zh">换一套规则，得到不同文明</span></h2>
+      </div>
+    </div>
+
+    <div class="cf-list" id="cf-list">
+      <div class="cf-tab active" data-id="lowfine"><div class="nm-en"><em>Different Constants</em></div><div class="nm-zh">不同物理常数</div></div>
+      <div class="cf-tab" data-id="earlyintel"><div class="nm-en"><em>Earlier Intelligence</em></div><div class="nm-zh">智能更早涌现</div></div>
+      <div class="cf-tab" data-id="hivearch"><div class="nm-en"><em>Hive Civilization</em></div><div class="nm-zh">蜂群文明</div></div>
+      <div class="cf-tab" data-id="aifirst"><div class="nm-en"><em>AI-First Society</em></div><div class="nm-zh">AI 优先社会</div></div>
+    </div>
+
+    <div class="cf-content" id="cf-content"></div>
+  </div>
+</section>
+
+<!-- LAYER 10 STABILITY -->
+<section class="layer reveal" id="layer10">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">X</div>
+      <div>
+        <div class="layer-tag">LAYER 10 · STABILITY &amp; COLLAPSE</div>
+        <h2>Collapse is transformation, not failure <span class="zh">崩溃是转化，不是失败</span></h2>
+      </div>
+    </div>
+    <div class="scenarios">
+      <div class="scenario lime">
+        <div class="lab">Stability</div>
+        <div class="nm-en"><em>Conditions</em></div>
+        <div class="nm-zh">稳定的条件</div>
+        <div class="body-en">Coordination ≥ Complexity growth. Energy input ≥ Entropy cost. Decision velocity ≥ Constraint change rate. When all three hold, civilization is in dynamic equilibrium.</div>
+        <div class="body-zh">协调 ≥ 复杂性增速。能量输入 ≥ 熵代价。决策速度 ≥ 约束变化率。三者皆成立时，文明处于动态均衡。</div>
+      </div>
+      <div class="scenario rose">
+        <div class="lab">Threshold</div>
+        <div class="nm-en"><em>Collapse Triggers</em></div>
+        <div class="nm-zh">崩溃触发</div>
+        <div class="body-en">Any of: coordination decay rate &gt; complexity rate, energy input falls below subsistence, decision velocity falls below shock rate. Each is a phase transition signal.</div>
+        <div class="body-zh">任一：协调衰退率 &gt; 复杂性率、能量输入低于生存线、决策速度低于冲击率。每一项都是相变信号。</div>
+      </div>
+      <div class="scenario orange">
+        <div class="lab">Phase Transition</div>
+        <div class="nm-en"><em>What Actually Happens</em></div>
+        <div class="nm-zh">实际发生</div>
+        <div class="body-en">Complex global → simpler local. Centralized → distributed. Stored complexity (writing, infrastructure, institutions) carries forward unevenly. The ratchet of cumulative culture slips, but rarely all the way back.</div>
+        <div class="body-zh">复杂全球 → 简单局部。中心化 → 分布式。已存储复杂性（文字、基础设施、制度）不均匀地延续。累积文化的棘轮打滑，但极少全部回退。</div>
+      </div>
+      <div class="scenario">
+        <div class="lab">Recovery</div>
+        <div class="nm-en"><em>Path Back</em></div>
+        <div class="nm-zh">恢复路径</div>
+        <div class="body-en">Energy first, coordination second, complexity third. Recovery rates are dictated by which substrate (memory, knowledge, biology) survived the transition. Bronze Age recovery: ~400 years. Roman: ~1,000.</div>
+        <div class="body-zh">先能量，后协调，再复杂性。恢复率由「哪种基底（记忆、知识、生物）幸存于转化」决定。青铜时代恢复约 400 年。罗马约 1,000 年。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 11 META-LAWS -->
+<section class="layer reveal" id="layer11">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">XI</div>
+      <div>
+        <div class="layer-tag">LAYER 11 · EMERGENT META-LAWS</div>
+        <h2>Higher-order regularities <span class="zh">高阶规律</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">When you treat physics + intelligence + civilization as one system, certain regularities emerge that no single discipline could have stated. Below: four URCDE meta-laws — speculative but operationally testable.</div>
+      <div class="zh">当把物理 + 智能 + 文明视为一个系统时，某些规律便涌现出来——任一单一学科都无法陈述。下方：四条 URCDE 元定律——推测性但可在运营上检验。</div>
+    </div>
+    <div class="scenarios">
+      <div class="scenario"><div class="lab">Meta-Law 01</div><div class="nm-en"><em>Intelligence accelerates entropy management</em></div><div class="nm-zh">智能加速熵管理</div><div class="body-en">More intelligent systems extract more useful work per unit of energy. Civilization is a thermodynamic phenomenon.</div><div class="body-zh">更具智能的系统每单位能量提取更多有用功。文明是一种热力学现象。</div></div>
+      <div class="scenario orange"><div class="lab">Meta-Law 02</div><div class="nm-en"><em>Energy availability determines complexity ceiling</em></div><div class="nm-zh">能量可得性决定复杂度上限</div><div class="body-en">Each civilization has a Kardashev-style ceiling. Without crossing it, complexity stops increasing — regardless of intelligence.</div><div class="body-zh">每个文明都有类似 Kardashev 的天花板。不跨越则复杂性停止增长——与智能无关。</div></div>
+      <div class="scenario lime"><div class="lab">Meta-Law 03</div><div class="nm-en"><em>Coordination determines survival probability</em></div><div class="nm-zh">协调决定生存概率</div><div class="body-en">In every civilization that collapsed, the ultimate cause was coordination failure (not energy or technology). Coordination is the rate-limiting factor.</div><div class="body-zh">每一个崩溃的文明，最终原因都是协调失败（非能源或技术）。协调是速率限制因素。</div></div>
+      <div class="scenario violet"><div class="lab">Meta-Law 04</div><div class="nm-en"><em>Information density drives evolution speed</em></div><div class="nm-zh">信息密度驱动演化速度</div><div class="body-en">The denser a civilization's information network, the faster it can update its models. Faster updates = faster evolution. Internet → AI → recursive AI = each successive cycle 10× faster.</div><div class="body-zh">文明信息网络越密，模型更新越快。更快更新 = 更快演化。互联网 → AI → 递归 AI = 每一周期快 10 倍。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 12 METRICS RADAR -->
+<section class="layer reveal" id="layer12">
+  <div class="container">
+    <div class="layer-head">
+      <div class="layer-num">XII</div>
+      <div>
+        <div class="layer-tag">LAYER 12 · CIVILIZATION PERFORMANCE METRICS</div>
+        <h2>Five universal indices · live <span class="zh">五项通用指标 · 实时</span></h2>
+      </div>
+    </div>
+    <div class="bi">
+      <div class="en">URCDE proposes five composite metrics that any civilization — historical, current, hypothetical — can be scored on. The radar below recomputes from your sliders in §08. Move them; watch the polygon change.</div>
+      <div class="zh">URCDE 提出五项任何文明（历史的、当下的、假想的）都可被评分的复合指标。下方雷达图根据第 08 节滑块实时重算。移动它们；观察多边形改变。</div>
+    </div>
+
+    <div class="radar-wrap">
+      <canvas id="metrics-canvas" width="500" height="500"></canvas>
+      <div class="metrics-list" id="metrics-list"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="layer" id="final">
+  <div class="container">
+    <div class="manifesto">
+      <div class="glyph">∞</div>
+      <div class="layer-tag" style="margin-bottom: 24px; text-align: center;">FINAL · 终</div>
+      <div class="pair">
+        <p>This system is not predictive.<br>It is a unified generative framework that treats physics, intelligence, and civilization as one continuous recursive system.<br><br>The universe is not separate from intelligence.<br>Intelligence is how the universe computes itself.</p>
+        <p class="zh">本系统并非预测性。<br>它是一个统一的生成式框架，将物理、智能与文明视为一个连续递归系统。<br><br>宇宙与智能并不分离。<br>智能即是宇宙计算自身的方式。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-bottom">
+      <span>Part of the <a href="https://psyverse.fun">Psyverse</a> portfolio · 收录于 Psyverse 作品集 · See also <a href="https://omega.psyverse.fun">omega</a> · <a href="https://minds.psyverse.fun">minds</a></span>
+      <span>Compiled April 2026 · 编纂于 2026 年 4 月</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://analytics-dashboard-two-blue.vercel.app/tracker.js" defer></script>
+<script>
+// Starfield
+(function () {
+  const c = document.getElementById('starfield');
+  const ctx = c.getContext('2d');
+  let stars = [];
+  function resize() {
+    c.width = window.innerWidth; c.height = window.innerHeight;
+    stars = Array.from({length: 130}, () => ({
+      x: Math.random() * c.width, y: Math.random() * c.height,
+      r: Math.random() * 1.2 + 0.2, tw: Math.random() * Math.PI * 2,
+      ts: 0.005 + Math.random() * 0.015
+    }));
+  }
+  resize(); window.addEventListener('resize', resize);
+  function draw() {
+    ctx.clearRect(0, 0, c.width, c.height);
+    for (const s of stars) {
+      s.tw += s.ts;
+      const a = 0.25 + 0.55 * (Math.sin(s.tw) * 0.5 + 0.5);
+      ctx.fillStyle = `rgba(232, 234, 242, ${a * 0.55})`;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Reveal
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.06 });
+  els.forEach((el) => io.observe(el));
+})();
+
+// Multi-agent interpretation
+const AGENTS = {
+  physics: {
+    nm: { en: "Physics Agent", zh: "物理智能体" },
+    en: "<strong>Constraint:</strong> Compute requires energy. At Landauer's bound, every bit erased dissipates kT ln(2) joules. Below ~10 GW per exaflop, training stops. Reality enforces a hard ceiling — the only question is when we hit it. Estimated: 2030-2032 at current trajectory.",
+    zh: "<strong>约束：</strong>计算需要能量。在 Landauer 极限下，每擦除一比特消散 kT ln(2) 焦耳。低于每 exaflop 约 10 GW，训练停止。物理强加硬性天花板——唯一的问题是何时撞上。估计：按当前轨迹 2030-2032 年。"
+  },
+  ai: {
+    nm: { en: "AI Agent", zh: "AI 智能体" },
+    en: "<strong>Optimization:</strong> Algorithmic efficiency improves ~3×/yr (Hernandez & Brown, 2024). If algorithms outpace energy growth, the constraint slides. If hardware efficiency stops improving, the constraint binds. Outcome depends on whether Moore-equivalent gains continue past 2030.",
+    zh: "<strong>优化：</strong>算法效率年增约 3 倍（Hernandez & Brown, 2024）。若算法快于能源增长，约束推后。若硬件效率停止提升，约束生效。结果取决于摩尔等效增益能否在 2030 年后延续。"
+  },
+  econ: {
+    nm: { en: "Economist Agent", zh: "经济智能体" },
+    en: "<strong>Allocation:</strong> Compute will be priced according to its productivity. As GDP-per-flop rises, energy will be reallocated toward AI training away from heating, transport, manufacturing. Substitution effect dominates by 2028. Energy crisis gets re-framed as a compute opportunity.",
+    zh: "<strong>分配：</strong>算力将按其生产力定价。随每 flop GDP 上升，能源将从供暖、运输、制造重新分配至 AI 训练。替代效应到 2028 年占主导。能源危机被重新框架为算力机会。"
+  },
+  socio: {
+    nm: { en: "Sociopolitical Agent", zh: "社会政治智能体" },
+    en: "<strong>Coordination:</strong> Geopolitical conflict over compute access (chip embargoes, energy nationalization, AI export controls) will rise. Whichever bloc resolves the energy-compute coupling first gains decisive advantage. Winner-takes-most dynamics, not winner-takes-all.",
+    zh: "<strong>协调：</strong>围绕算力获取的地缘冲突（芯片禁运、能源国有化、AI 出口管制）将上升。最先解决「能源-算力耦合」的阵营将获得决定性优势。赢者通占多数，非赢者通吃。"
+  },
+  risk: {
+    nm: { en: "Risk Agent", zh: "风险智能体" },
+    en: "<strong>Failure modes:</strong> (1) Grid instability from concentrated AI load; (2) Stranded model investments if algorithms leap ahead of compute; (3) Strategic surprise — a competitor reaching AGI first. Probability-weighted, the largest risk is not collapse but bifurcation: two civilizations on the same planet.",
+    zh: "<strong>失败模式：</strong>（1）AI 负载集中导致电网失稳；（2）若算法跨越算力，模型投资搁浅；（3）战略奇袭——竞争对手率先抵达 AGI。按概率加权，最大风险非崩溃而是分叉：同一行星上的两个文明。"
+  }
+};
+function renderAgent(id) {
+  const a = AGENTS[id];
+  document.getElementById('agent-content').innerHTML = `
+    <div class="agent-name">${a.nm.en}</div>
+    <div class="agent-name-zh">${a.nm.zh}</div>
+    <div class="agent-content">
+      <div class="col-en">${a.en}</div>
+      <div class="col-zh">${a.zh}</div>
+    </div>
+  `;
+}
+renderAgent('physics');
+document.querySelectorAll('.agent-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.agent-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderAgent(tab.dataset.id);
+  });
+});
+
+// Counterfactual
+const COUNTERFACTUALS = {
+  lowfine: {
+    nm: { en: "Different Physical Constants", zh: "不同的物理常数" },
+    en: "<strong>If the fine-structure constant α were 1% larger:</strong> stars burn faster, complex chemistry has less time. Civilizations form (if at all) on shorter cosmological timescales. Intelligence emerges hot and dies young. URCDE state vector: high entropy pressure permanently dominates; recovery from collapse rare because no second chance.",
+    zh: "<strong>若精细结构常数 α 大 1%：</strong>恒星燃烧更快，复杂化学时间更少。文明（若有）在更短宇宙时间尺度上形成。智能炽热涌现而早夭。URCDE 状态向量：高熵压永久主导；崩溃恢复罕见，因无第二次机会。"
+  },
+  earlyintel: {
+    nm: { en: "Earlier Intelligence Emergence", zh: "智能更早涌现" },
+    en: "<strong>If intelligence emerged 1 billion years earlier:</strong> shorter biological evolution; less species diversity; civilizations face the energy ceiling without the natural-resource buffer. Probable outcome: collapse before reaching electricity. The Anthropic principle becomes more selective — we exist in a universe where intelligence emerged just late enough to find fossil fuels.",
+    zh: "<strong>若智能早 10 亿年涌现：</strong>生物演化更短；物种多样性更低；文明面对能源天花板时无自然资源缓冲。可能结果：在抵达电力之前便崩溃。人择原理变得更具选择性——我们身处的宇宙，智能恰好涌现得足够晚以发现化石燃料。"
+  },
+  hivearch: {
+    nm: { en: "Hive Civilization", zh: "蜂群文明" },
+    en: "<strong>If individual intelligence is low but coordination is near-perfect:</strong> civilization scales by parallelism, not depth. Technologies are simple but ubiquitous. Cultural evolution is slow because no individual deviates much. Stable for millions of years; never invents quantum mechanics. URCDE: high CSS, low IDI, low DCI.",
+    zh: "<strong>若个体智能低但协调近完美：</strong>文明以并行而非深度扩展。技术简单但无处不在。文化演化缓慢，因无个体显著偏离。可稳定数百万年；永不发明量子力学。URCDE：高协调稳定性，低智能密度，低决策一致性。"
+  },
+  aifirst: {
+    nm: { en: "AI-First Society", zh: "AI 优先社会" },
+    en: "<strong>If AI emerges before complex biological intelligence:</strong> the first 'civilization' is silicon-substrate, designed not evolved. No emotional baggage, no irrationality — but also no embodiment, no taste, no morality without import. Decision velocity 1000× faster, but objectives must be specified externally. Risk: meaning vacuum.",
+    zh: "<strong>若 AI 在复杂生物智能之前涌现：</strong>首个「文明」基于硅基底，被设计而非被演化。无情感包袱、无非理性——但亦无具身、无品味、无外部输入便无道德。决策速度快 1000 倍，但目标需外部指定。风险：意义真空。"
+  }
+};
+function renderCF(id) {
+  const c = COUNTERFACTUALS[id];
+  document.getElementById('cf-content').innerHTML = `
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--orange);margin-bottom:6px;">${c.nm.en}</div>
+    <div style="font-family:'Noto Serif SC',serif;font-size:16px;color:var(--fg-2);margin-bottom:18px;">${c.nm.zh}</div>
+    <div class="pair">
+      <div class="col-en">${c.en}</div>
+      <div class="col-zh">${c.zh}</div>
+    </div>
+  `;
+}
+renderCF('lowfine');
+document.querySelectorAll('.cf-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.cf-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderCF(tab.dataset.id);
+  });
+});
+
+// State vector simulator + metrics radar
+const SIM = { energy: 50, intel: 50, coord: 50, tech: 50, entropy: 50, decvel: 50, risk: 50 };
+const VERDICTS = [
+  { test: s => s.entropy > 80 && s.coord < 40, en: "Imminent Collapse", zh: "即将崩溃", de: "Coordination cannot keep pace with entropy. Phase transition to fragmented local equilibria likely.", dz: "协调跟不上熵增。可能向碎片化局部均衡相变。" },
+  { test: s => s.tech > 75 && s.energy < 40, en: "Bifurcation Risk", zh: "分叉风险", de: "Technology outruns its energy substrate. Digital elite, physical underclass.", dz: "技术超越其能源基底。数字精英、物理下层。" },
+  { test: s => s.intel > 80 && s.coord < 50, en: "Singularity · Coordination Bottleneck", zh: "奇点 · 协调瓶颈", de: "AI capability exceeds coordination capacity. Outcome depends on alignment.", dz: "AI 能力超过协调能力。结果取决于对齐。" },
+  { test: s => s.energy > 80 && s.tech > 70 && s.coord > 60, en: "Complexity Explosion", zh: "复杂性爆发", de: "All inputs abundant. Risk shifts from resource-collapse to meaning-collapse.", dz: "所有输入皆丰裕。风险从资源崩塌转向意义崩塌。" },
+  { test: s => s.coord > 70 && s.entropy < 40 && s.energy > 50, en: "Stable Equilibrium", zh: "稳定均衡", de: "Coordination ≥ complexity growth. Energy input ≥ entropy cost. Healthy dynamic equilibrium.", dz: "协调 ≥ 复杂性增长。能量输入 ≥ 熵代价。健康动态均衡。" },
+  { test: s => s.decvel < 30 && s.risk > 60, en: "Decision Paralysis", zh: "决策瘫痪", de: "Decision velocity falls below the rate of change. Civilization cannot respond fast enough to its own environment.", dz: "决策速度低于变化率。文明无法对自身环境足够快速响应。" },
+  { test: s => true, en: "Mixed Configuration", zh: "混合配置", de: "No clear regime. The civilization is in transition between known attractors.", dz: "无明确状态。文明在已知吸引子之间过渡。" },
+];
+
+function metricsFromState(s) {
+  return {
+    IDI: Math.round((s.intel * 0.6 + s.tech * 0.3 + s.coord * 0.1)),
+    EUE: Math.round((s.energy * 0.5 + s.tech * 0.3 + (100 - s.entropy) * 0.2)),
+    CSS: Math.round((s.coord * 0.6 + (100 - s.entropy) * 0.2 + (100 - s.risk) * 0.2)),
+    ERF: Math.round(((100 - s.entropy) * 0.4 + s.intel * 0.3 + s.energy * 0.3)),
+    DCI: Math.round((s.decvel * 0.5 + s.coord * 0.3 + s.intel * 0.2)),
+  };
+}
+
+function updateSim() {
+  for (const k of ['energy','intel','coord','tech','entropy','decvel','risk']) {
+    const v = parseInt(document.getElementById('s-'+k).value);
+    SIM[k] = v;
+    document.getElementById('v-'+k).textContent = v;
+  }
+  const verdict = VERDICTS.find(v => v.test(SIM));
+  document.getElementById('verdict-en').textContent = verdict.en;
+  document.getElementById('verdict-zh').textContent = verdict.zh;
+  document.getElementById('desc-en').textContent = verdict.de;
+  document.getElementById('desc-zh').textContent = verdict.dz;
+  drawRadar();
+}
+document.querySelectorAll('#sim-controls input').forEach(i => i.addEventListener('input', updateSim));
+
+// Metrics radar
+const metricCanvas = document.getElementById('metrics-canvas');
+const mctx = metricCanvas.getContext('2d');
+const dpr = window.devicePixelRatio || 1;
+metricCanvas.width = 500 * dpr; metricCanvas.height = 500 * dpr;
+mctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+const METRICS_DEF = [
+  { key: 'IDI', en: 'IDI', zh: '智能密度', full_en: 'Intelligence Density Index', full_zh: '智能密度指数', c: '#a78bfa' },
+  { key: 'EUE', en: 'EUE', zh: '能效', full_en: 'Energy Utilization Efficiency', full_zh: '能源利用效率', c: '#f97316' },
+  { key: 'CSS', en: 'CSS', zh: '协调稳定', full_en: 'Coordination Stability Score', full_zh: '协调稳定性评分', c: '#84cc16' },
+  { key: 'ERF', en: 'ERF', zh: '抗熵', full_en: 'Entropy Resistance Factor', full_zh: '熵抗性因子', c: '#22d3ee' },
+  { key: 'DCI', en: 'DCI', zh: '决策一致', full_en: 'Decision Coherence Index', full_zh: '决策一致性指数', c: '#fbbf24' },
+];
+
+function drawRadar() {
+  const W = 500, H = 500;
+  mctx.clearRect(0, 0, W, H);
+  const cx = W/2, cy = H/2, R = 165;
+  const m = metricsFromState(SIM);
+  // Grid
+  mctx.strokeStyle = 'rgba(108, 116, 136, 0.6)'; mctx.lineWidth = 0.5;
+  for (let r = 1; r <= 5; r++) {
+    mctx.beginPath();
+    for (let i = 0; i <= METRICS_DEF.length; i++) {
+      const a = (i / METRICS_DEF.length) * Math.PI * 2 - Math.PI/2;
+      const x = cx + Math.cos(a) * R * (r/5);
+      const y = cy + Math.sin(a) * R * (r/5);
+      if (i === 0) mctx.moveTo(x, y); else mctx.lineTo(x, y);
+    }
+    mctx.stroke();
+  }
+  // Spokes
+  for (let i = 0; i < METRICS_DEF.length; i++) {
+    const a = (i / METRICS_DEF.length) * Math.PI * 2 - Math.PI/2;
+    mctx.beginPath();
+    mctx.moveTo(cx, cy);
+    mctx.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R);
+    mctx.stroke();
+  }
+  // Labels
+  mctx.fillStyle = '#a8b0c4';
+  mctx.font = '12px JetBrains Mono';
+  mctx.textAlign = 'center'; mctx.textBaseline = 'middle';
+  for (let i = 0; i < METRICS_DEF.length; i++) {
+    const a = (i / METRICS_DEF.length) * Math.PI * 2 - Math.PI/2;
+    const lx = cx + Math.cos(a) * (R + 28);
+    const ly = cy + Math.sin(a) * (R + 22);
+    mctx.fillStyle = METRICS_DEF[i].c;
+    mctx.fillText(METRICS_DEF[i].en, lx, ly - 7);
+    mctx.fillStyle = '#6c7488';
+    mctx.font = '10px Noto Sans SC, sans-serif';
+    mctx.fillText(METRICS_DEF[i].zh, lx, ly + 7);
+    mctx.font = '12px JetBrains Mono';
+  }
+  // Polygon
+  mctx.beginPath();
+  for (let i = 0; i <= METRICS_DEF.length; i++) {
+    const idx = i % METRICS_DEF.length;
+    const a = (idx / METRICS_DEF.length) * Math.PI * 2 - Math.PI/2;
+    const v = m[METRICS_DEF[idx].key] / 100;
+    const x = cx + Math.cos(a) * R * v;
+    const y = cy + Math.sin(a) * R * v;
+    if (i === 0) mctx.moveTo(x, y); else mctx.lineTo(x, y);
+  }
+  mctx.closePath();
+  mctx.fillStyle = 'rgba(34, 211, 238, 0.18)';
+  mctx.fill();
+  mctx.strokeStyle = '#22d3ee'; mctx.lineWidth = 1.6; mctx.stroke();
+  for (let i = 0; i < METRICS_DEF.length; i++) {
+    const a = (i / METRICS_DEF.length) * Math.PI * 2 - Math.PI/2;
+    const v = m[METRICS_DEF[i].key] / 100;
+    const x = cx + Math.cos(a) * R * v;
+    const y = cy + Math.sin(a) * R * v;
+    mctx.beginPath();
+    mctx.arc(x, y, 3, 0, Math.PI * 2);
+    mctx.fillStyle = METRICS_DEF[i].c;
+    mctx.fill();
+  }
+  // Update list
+  document.getElementById('metrics-list').innerHTML = METRICS_DEF.map(d => `
+    <div class="m">
+      <div class="swatch" style="background:${d.c};"></div>
+      <div class="nm"><em>${d.full_en}</em><span class="zh">${d.full_zh}</span></div>
+      <div class="val" style="color:${d.c};">${m[d.key]}</div>
+    </div>
+  `).join('');
+}
+updateSim();
+</script>
+</body>
+</html>
